@@ -2,10 +2,12 @@
 ### Tema proiectului <br />
 Librarie online<br />
 ### Clasele implementate:<br />
-- Carte: definirea datelor despre obiectul carte si metode de verificare a stocului,adaugarea numarului de copii pentru o carte,supraincarcarea << <br />
-- GenCarte: mosteneste clasa Carte si adauga in plus genul literar<br />
-- Gestiune_Vector_Carti: o clasa interfata cu doua metode pur virtuale<br />
-- Inventar: mosteneste clasa Gestiune_Vector_Carti si Carte, contine un array de obiecte GenCarte si implementeaza metodele de scoatere/adaugare carti din clasa Gestiune_Vector_Carti, contine functii de cautare a unei carti in inventar, de scoatere a unui numar de copii, o functie care face statistica a procentelor de carti scrise intr-o anumita limba si supraincarcarea operatorului = <br />
+-ProdusLibrarie: clasa de baza,definirea datelor generale pentru produsele unei librarii, metode de modificare a stocului, functie virtuala de afisare<br/>
+- Carte: categoria cartii, statusul daca este impachetata pentru cadou <br />
+- Revista: date despre data si numarul publicatiei revistei<br/>
+- Audiobook: mentioneaza durata audiobook-ului si naratorul<br/>
+- ImpachetareCarte: o clasa care primeste un obiect de tip Carte si ii schimba statusul in impachetata pentru cadou <br/>
+- Inventar: clasa template, poate crea inventarul pentru orice tip de produse din librarie, contine functii de cautare a unei carti in inventar, o functie care face statistica a procentelor de carti scrise intr-o anumita limba si supraincarcarea operatorului = <br />
 - Cont: clasa abstracta, are ca date membru parola, emailul si adresa cu modificatorul protected si functii pur virtuale<br />
 - Cont_client: mosteneste cu protected clasa Cont si retine numele si prenumele unui client, are o functie care calculeaza reducerea comenzii in functie de numarul de puncte de pe cont, o functie in care sunt validate emailul si parola introduse de utilizator si una in care se face autentificarea <br />
 - ExceptieCustom: in care se extinde std::exception<br />
@@ -15,10 +17,13 @@ Librarie online<br />
 ### Functionalitati<br />
 - meniu interactiv <br />
 - meniul are optinea de conectare la un cont existent sau crearea unui cont nou <br />
-- meniul are optiunea de a da o comanda de carti sau a lasa review unei carti <br />
-- citirea obiectelor de tip GenCarte/Cont_client dintr-un fisier si adaugarea lor intr-un vector <br />
-- crearea de obiecte de tip GenCarte si adaugarea/scoaterea lor dintr-un inventar/cos de cumparaturi<br />
-- afișarea detaliilor comenzii pe ecran<br />
+- meniul are optiunea de a da o comanda de un produs sau a lasa review unei carti <br />
+- citirea obiectelor de tip Carte/Revista/Audiobook/Cont_client dintr-un fisier si adaugarea lor intr-un vector <br />
+- posibilitatea de a crea un inventar pentru fiecare tip de produs <br/>
+- utilizarea functiilor template pentru a adauga/scoate produse dintr-un vector
+- crearea de obiecte de tip Carte/Revista/Audiobook si adaugarea/scoaterea lor dintr-un inventar/cos de cumparaturi<br />
+- adaugarea in cosul de cumparaturi obiecte din clasele derivate folosind shared_ptr <br/>
+- afișarea detaliilor comenzii pe ecran si data exacta a plasarii acesteia<br />
 - calcularea reducerii in functie de numarul de puncte de pe contul clientului<br />
 - calcularea reducerii de 10% pentru comenzile ce depasesc 300 de lei<br />
 - posibiliatea de a modifica taxa de transport prin o functie statica <br />
